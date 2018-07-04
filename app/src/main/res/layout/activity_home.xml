@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:paddingLeft="25dp"
+    android:paddingRight="25dp"
+    tools:context=".Home">
+    <ImageView
+        android:id="@+id/image_logo"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/img_logo"
+        android:scaleType="centerInside"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        />
+
+    <TextView
+        android:id="@+id/text_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Welcome to Our Application"
+        android:textSize="20sp"
+        android:layout_below="@+id/image_logo"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:textStyle="bold"
+        />
+    <EditText
+        android:id="@+id/user_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Your Email"
+        android:layout_below="@+id/text_description"
+        android:layout_margin="10dp"
+        />
+    <EditText
+        android:id="@+id/user_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Your Password"
+        android:layout_below="@+id/user_email"
+        android:layout_margin="15dp"
+        />
+    <TextView
+        android:id="@+id/forgotPass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Forget Your Password?"
+        android:layout_below="@+id/user_password"
+        android:layout_margin="20dp"
+        android:textStyle="bold"
+        android:gravity="right"
+        />
+    <Button
+        android:id="@+id/loginBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="LOGIN"
+        android:layout_below="@+id/forgotPass"
+        android:background="@color/colorPrimary"
+        android:textColor="#FFFFFF"
+        android:layout_margin="10dp"
+        />
+    <TextView
+        android:id="@+id/regTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dont Have an Account Yet? Register"
+        android:layout_below="@id/loginBtn"
+        android:layout_margin="20dp"
+        android:textStyle="bold"
+        />
+
+</RelativeLayout>
