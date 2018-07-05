@@ -31,7 +31,7 @@ class RegisterActivity : AppCompatActivity() {
         mRegisterBtn = findViewById(R.id.registerBtn)
         mRegEmail = findViewById(R.id.user_email)
         mRegPass = findViewById(R.id.user_password)
-        mUserName = findViewById(R.id.userName)
+        mUserName = findViewById(R.id.user_name)
         mLoginBtn = findViewById(R.id.loginTxt)
         mProgressBar = ProgressDialog(this)
 
