@@ -25,7 +25,9 @@
         <activity android:name=".RegisterActivity" />
         <activity
             android:name=".DashboardActivity"
-            android:label="@string/title_activity_dashboard"></activity>
+            android:label="@string/title_activity_dashboard" />
+        <activity android:name=".Dashboard_activity" />
+        <activity android:name=".ForgotPass"></activity>
     </application>
 
 </manifest>

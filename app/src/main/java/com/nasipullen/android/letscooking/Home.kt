@@ -41,10 +41,9 @@ class Home : AppCompatActivity() {
         mAuth = FirebaseAuth.getInstance()
         mDatabase = FirebaseDatabase.getInstance().getReference("Users")
 
-        mCreateUser.setOnClickListener {
-            val intent = Intent(applicationContext, RegisterActivity::class.java)
-            startActivity(intent)
-            finish()
+        mForgetPass.setOnClickListener { startActivity(Intent (this@Home, ForgotPass::class.java)) }
+
+        mCreateUser.setOnClickListener {startActivity(Intent(this@Home, RegisterActivity::class.java))
         }
 
         mLoginBtn.setOnClickListener {
@@ -71,7 +70,7 @@ class Home : AppCompatActivity() {
                 .addOnCompleteListener(this){task ->
                       if (task.isSuccessful){
                         mProgressbar.dismiss()
-                          val startIntent = Intent(applicationContext, DashboardActivity::class.java)
+                          val startIntent = Intent(applicationContext, Dashboard_activity::class.java)
                           startActivity(startIntent)
                           finish()
                       } else {

@@ -78,6 +78,7 @@ class RegisterActivity : AppCompatActivity() {
                     if (task.isSuccessful) {
                         val currentUser = FirebaseAuth.getInstance().currentUser
                         val uid = currentUser!!.uid
+                        verifyEmail()
 
                         val userMap = HashMap<String, String>()
                         userMap["name"] = name
@@ -85,9 +86,7 @@ class RegisterActivity : AppCompatActivity() {
                         mDatabase = FirebaseDatabase.getInstance().getReference("Users").child(uid)
                         mDatabase.setValue(userMap).addOnCompleteListener(OnCompleteListener { task ->
                             if (task.isSuccessful) {
-                                val intan = Intent(applicationContext, DashboardActivity::class.java)
-                                startActivity(intan)
-                                finish()
+                                startActivity(Intent(this@RegisterActivity, Dashboard_activity::class.java))
                                 Toast.makeText(this, "Registering Successfully", Toast.LENGTH_LONG).show()
                                 mProgressBar.dismiss()
 
@@ -97,6 +96,16 @@ class RegisterActivity : AppCompatActivity() {
                         Toast.makeText(this, "Authentication Failed", Toast.LENGTH_LONG).show()
                         mProgressBar.dismiss()
                     }
+        }
+    }
+    private fun verifyEmail(){
+        val mUser = mAuth.currentUser
+        mUser!!.sendEmailVerification().addOnCompleteListener(this){task ->
+            if (task.isSuccessful){
+                Toast.makeText(this, "Email verification sent" + mUser, Toast.LENGTH_LONG).show()
+            } else {
+                Toast.makeText(this, "Failed to Send Verification", Toast.LENGTH_LONG).show()
+            }
         }
     }
 }

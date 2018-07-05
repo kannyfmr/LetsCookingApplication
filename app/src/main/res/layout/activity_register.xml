@@ -8,13 +8,12 @@
     android:paddingLeft="25dp"
     android:paddingRight="25dp"
     tools:context=".RegisterActivity">
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:text="GET FREE UPDATES DAILY ,JUST FOR REGISTER "
+        android:text="GET FREE UPDATES DAILY JUST FOR REGISTER "
         android:textSize="18sp"
         android:textStyle="bold" />
 
