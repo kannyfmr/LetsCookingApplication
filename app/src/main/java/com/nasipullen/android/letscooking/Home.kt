@@ -62,6 +62,13 @@ class Home : AppCompatActivity() {
 
         }
     }
+    override fun onStart(){
+        super.onStart()
+        val currentUser = FirebaseAuth.getInstance().currentUser
+        if (currentUser != null){
+            startActivity(Intent(this@Home, Dashboard_activity::class.java))
+        }
+    }
 
     private fun loginUser(email: String, password: String) {
         mProgressbar.setMessage("Login In on Proccess")
