@@ -78,6 +78,7 @@ class RegisterActivity : AppCompatActivity() {
                     if (task.isSuccessful) {
                         val currentUser = FirebaseAuth.getInstance().currentUser
                         val uid = currentUser!!.uid
+                        val mUser = mAuth.currentUser
                         verifyEmail()
 
                         val userMap = HashMap<String, String>()
@@ -87,7 +88,7 @@ class RegisterActivity : AppCompatActivity() {
                         mDatabase.setValue(userMap).addOnCompleteListener(OnCompleteListener { task ->
                             if (task.isSuccessful) {
                                 startActivity(Intent(this@RegisterActivity, Dashboard_activity::class.java))
-                                Toast.makeText(this, "Registering Successfully", Toast.LENGTH_LONG).show()
+                                Toast.makeText(this, "Registering Successfully " + mUser!!.email , Toast.LENGTH_LONG).show()
                                 mProgressBar.dismiss()
 
                             }

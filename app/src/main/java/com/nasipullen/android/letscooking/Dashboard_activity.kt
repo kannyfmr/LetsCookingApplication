@@ -1,9 +1,11 @@
 package com.nasipullen.android.letscooking
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
@@ -27,7 +29,17 @@ class Dashboard_activity : AppCompatActivity() {
         logoutBtn = findViewById(R.id.logoutBtn)
         mAuth = FirebaseAuth.getInstance()
         mDatabase = FirebaseDatabase.getInstance().getReference("Users")
+
+        logoutBtn.setOnClickListener { userLogout() }
+
     }
+
+    private fun userLogout() {
+        mAuth.signOut()
+        Toast.makeText(this, "Successfully Logout", Toast.LENGTH_LONG).show()
+        startActivity(Intent(this@Dashboard_activity, Home::class.java ))
+    }
+
     override fun onStart(){
         super.onStart()
 
